@@ -32,7 +32,6 @@ public class NumberService {
     }
 
     private int lastDigit(int number) {
-        int lastDigit = number % 10;
-        return lastDigit;
+        return number % 10;
     }
 }
