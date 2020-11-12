@@ -23,23 +23,14 @@ public class MonthService {
                 numberOfDays = 30;
                 break;
             case 2:
-                if (isLeap(year)) {
-                    numberOfDays = 29;
-                } else {
-                    numberOfDays = 28;
-                }
+                numberOfDays = isLeap(year)? 29 : 28;
                 break;
         }
         return numberOfDays;
     }
 
     private boolean isLeap(Year year) {
-        boolean isLeap;
         int yearNumber = year.getYear();
-        if (yearNumber % 400 == 0 || (yearNumber % 4 == 0 && yearNumber % 100 != 0)) {
-            return true;
-        } else {
-            return false;
-        }
+        return yearNumber % 400 == 0 || (yearNumber % 4 == 0 && yearNumber % 100 != 0);
     }
 }

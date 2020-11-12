@@ -8,5 +8,6 @@
 /out/
 .idea/
 /Task1.iml
+/desktop.ini
 # Editor-based HTTP Client requests
 /httpRequests/
