@@ -3,7 +3,7 @@ package com.epam.task1.assignment9.entity;
 import com.epam.task1.assignment9.exception.CircleException;
 
 public class Circle {
-    double radius;
+    private double radius;
 
     public Circle(double radius) throws CircleException {
         if (checkRadius(radius)) {

@@ -3,7 +3,7 @@ package com.epam.task1.assignment2.entity;
 import com.epam.task1.assignment2.exception.MonthException;
 
 public class Month {
-    int asNumber;
+    private int asNumber;
 
     public Month(int asNumber) throws MonthException {
         if (checkNumber(asNumber)) {
@@ -23,14 +23,6 @@ public class Month {
         } else {
             throw new MonthException("not existing number of month");
         }
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Month{");
-        sb.append("asNumber=").append(asNumber);
-        sb.append('}');
-        return sb.toString();
     }
 
     private boolean checkNumber(int number) {

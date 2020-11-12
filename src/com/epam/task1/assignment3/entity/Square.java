@@ -3,7 +3,7 @@ package com.epam.task1.assignment3.entity;
 import com.epam.task1.assignment3.exception.SquareException;
 
 public class Square {
-    double sideLength;
+    private double sideLength;
 
     public Square(double sideLength) throws SquareException {
         if(checkSide(sideLength)) {

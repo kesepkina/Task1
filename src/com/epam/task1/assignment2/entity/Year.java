@@ -1,24 +1,24 @@
 package com.epam.task1.assignment2.entity;
 
 public class Year {
-    int year;
+    private int asNumber;
 
-    public Year(int year) {
-        this.year = year;
+    public Year(int asNumber) {
+        this.asNumber = asNumber;
     }
 
-    public int getYear() {
-        return year;
+    public int getAsNumber() {
+        return asNumber;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setAsNumber(int asNumber) {
+        this.asNumber = asNumber;
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Year{");
-        sb.append("year=").append(year);
+        sb.append("year=").append(asNumber);
         sb.append('}');
         return sb.toString();
     }

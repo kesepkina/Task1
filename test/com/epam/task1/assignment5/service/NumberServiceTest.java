@@ -1,9 +1,10 @@
 package com.epam.task1.assignment5.service;
 
-import com.epam.task1.assignment4.exception.NumberServiceException;
+import com.epam.task1.assignment5.exception.NumberServiceException;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertSame;
+import static org.testng.Assert.assertTrue;
 
 public class NumberServiceTest {
     @Test
@@ -12,7 +13,7 @@ public class NumberServiceTest {
 
         try {
             boolean isPerfectNumber = service.isPerfectNumber(496);
-            assertSame(isPerfectNumber, true);
+            assertTrue(isPerfectNumber);
         } catch (NumberServiceException e) {
             e.printStackTrace();
         }
