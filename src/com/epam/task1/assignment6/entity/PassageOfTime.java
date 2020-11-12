@@ -5,17 +5,18 @@ import com.epam.task1.assignment6.exception.TimeException;
 import java.util.Objects;
 
 public class PassageOfTime {
-    int hours;
-    int minutes;
-    int seconds;
+    private int hours;
+    private int minutes;
+    private int seconds;
+    private static final String NEGATIVE_TIME_ERROR_STRING = "Unit of time can't be negative.";
 
     public PassageOfTime(int hours, int minutes, int seconds) throws TimeException {
-        if (isNotNegativeNumber(hours) && isNotNegativeNumber(minutes) && isNotNegativeNumber(seconds)){
+        if (isNotNegativeNumber(hours) && isNotNegativeNumber(minutes) && isNotNegativeNumber(seconds)) {
             this.hours = hours;
             this.minutes = minutes;
             this.seconds = seconds;
         } else {
-            throw new TimeException("Unit of time can't be negative.");
+            throw new TimeException(NEGATIVE_TIME_ERROR_STRING);
         }
     }
 
@@ -25,6 +26,7 @@ public class PassageOfTime {
         this.seconds = 0;
     }
 
+
     public int getHours() {
         return hours;
     }
@@ -33,7 +35,7 @@ public class PassageOfTime {
         if (isNotNegativeNumber(hours)) {
             this.hours = hours;
         } else {
-            throw new TimeException("Unit of time can't be negative.");
+            throw new TimeException(NEGATIVE_TIME_ERROR_STRING);
         }
     }
 
@@ -45,7 +47,7 @@ public class PassageOfTime {
         if (isNotNegativeNumber(minutes)) {
             this.minutes = minutes;
         } else {
-            throw new TimeException("Unit of time can't be negative.");
+            throw new TimeException(NEGATIVE_TIME_ERROR_STRING);
         }
     }
 
@@ -57,8 +59,12 @@ public class PassageOfTime {
         if (isNotNegativeNumber(seconds)) {
             this.seconds = seconds;
         } else {
-            throw new TimeException("Unit of time can't be negative.");
+            throw new TimeException(NEGATIVE_TIME_ERROR_STRING);
         }
+    }
+
+    private boolean isNotNegativeNumber(int number) {
+        return number > -1;
     }
 
     @Override
@@ -76,7 +82,4 @@ public class PassageOfTime {
         return Objects.hash(hours, minutes, seconds);
     }
 
-    private boolean isNotNegativeNumber(int number){
-        return number > -1;
-    }
 }

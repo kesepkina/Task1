@@ -16,7 +16,7 @@ public class NumberService {
             }
 
         } else {
-            throw new NumberServiceException("To less numbers.");
+            throw new NumberServiceException("Not enough numbers.");
         }
         return numberOfEven > 1;
     }

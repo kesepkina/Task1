@@ -4,33 +4,25 @@ import com.epam.task1.assignment2.entity.Month;
 import com.epam.task1.assignment2.entity.Year;
 
 public class MonthService {
+    private static final int FOUR_HUNDRED = 400;
+    private static final int FOUR = 4;
+    private static final int ONE_HUNDRED = 100;
+
     public int numberOfDays(Month month, Year year) {
-        int numberOfDays = 0;
-        switch (month.getAsNumber()) {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                numberOfDays = 31;
-                break;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                numberOfDays = 30;
-                break;
-            case 2:
-                numberOfDays = isLeap(year)? 29 : 28;
-                break;
-        }
+        int numberOfDays;
+        numberOfDays = switch (month.getAsNumber()) {
+            case 1, 3, 5, 7, 8, 10, 12 -> 31;
+            case 4, 6, 9, 11 -> 30;
+            case 2 -> isLeap(year) ? 29 : 28;
+            default -> 0;
+        };
         return numberOfDays;
     }
 
     private boolean isLeap(Year year) {
-        int yearNumber = year.getYear();
-        return yearNumber % 400 == 0 || (yearNumber % 4 == 0 && yearNumber % 100 != 0);
+        int yearNumber = year.getAsNumber();
+        boolean isLeap;
+        isLeap = (yearNumber % FOUR_HUNDRED == 0) || (yearNumber % FOUR == 0 && yearNumber % ONE_HUNDRED != 0);
+        return isLeap;
     }
 }
